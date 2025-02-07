@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim Zhou - Personal Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background: linear-gradient(135deg, #FFDDC1, #FF9AA2, #FFDAC1, #FCF6BD);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 玻璃拟态导航栏 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF6F61;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FF6F61;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        /* Header */
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* 按钮 */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background: #FF6F61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #E35D52;
+            transform: scale(1.05);
+        }
+
+        /* BACK 按钮 */
+        .back-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACK 按钮
+    <button class="back-button" onclick="window.location.href='new1.html'">BACK</button> -->
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="logo">Tim Zhou</div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links">
+            <li><a href="new1.html">Main Page</a></li>
+            <li><a href="me.html">About Me</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <!-- 个人介绍 -->
+    <div class="container">
+        <h1>Hello, I'm Tim Zhou</h1>
+        <p>I am a student with a passion for computer science.</p>
+        <button class="btn" onclick="window.location.href='https://www.youtube.com/watch?v=ibUG8nHmZ7M'">Learn More</button>
+    </div>
+
+    <!-- 技能 -->
+    <div class="container">
+        <h1>My Journey in Technology</h1>
+        <p>I've been learning C++ for about 5 years.</p>
+        <h2>Technologies I Use</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>ChatGPT</li>
+            <li>C++(My Favorite One)</li>
+            <li>Python</li>
+            <li>GitHub</li>
+        </ul>
+    </div>
+
+    <!-- 生活 -->
+    <div class="container">
+        <h1>My Life Outside Programming</h1>
+        <p>I live with my parents in Chengdu, China. I also have a younger brother who was born last Christmas.</p>
+        <p>I like video games very much,I hane been play PUBG ,Among Us,Efootball,NBA2K,etc.And my favorite one is NBA2K.</p>
+        <p>My favorite sport is basketball, but I also enjoy soccer and table tennis.</p>
+        <p>I have a good eating habit,I like vegetable and fruits,my favorite fruits are apples.</p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        &copy; 2025 Tim Zhou. All rights reserved.
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("show");
+        }
+    </script>
+
+</body>
+</html>

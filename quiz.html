@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* 页面背景 */
+        body {
+            background: linear-gradient(135deg, #FFDDC1, #FF9AA2, #FFDAC1, #FCF6BD);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* 容器 */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+            margin-top: 80px; /* 让出导航栏的位置 */
+        }
+
+        /* 标题 */
+        h1 {
+            color: #FF6F61;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* 题目样式 */
+        .question {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .question h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin: 8px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .options li:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.02);
+        }
+
+        input {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        /* 按钮样式 */
+        button {
+            background: #FF6F61;
+            color: white;
+            font-size: 18px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #D64550;
+            transform: scale(1.05);
+        }
+
+        /* 结果反馈 */
+        .result {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* BACK 按钮 */
+        .back-button {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* 动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF6F61;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FF6F61;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Tim Zhou</div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links">
+            <li><a href="new1.html">Main Page</a></li>
+            <li><a href="me.html">About Me</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+    
+    <!-- BACK 按钮
+    <button class="back-button" onclick="window.location.href='new1.html'">BACK</button> -->
+
+    <!-- 主要内容 -->
+    <div class="container">
+        <h1>How Well Do You Know Tim?</h1>
+
+        <!-- 题目 -->
+        <div class="question" data-correct="1">
+            <h3>What is Tim's favorite programming language?</h3>
+            <ul class="options">
+                <li><input type="radio" name="q1" value="1"> C++</li>
+                <li><input type="radio" name="q1" value="2"> Python</li>
+                <li><input type="radio" name="q1" value="3"> Java</li>
+                <li><input type="radio" name="q1" value="4"> C</li>
+            </ul>
+        </div>
+
+        <div class="question" data-correct="4">
+            <h3>What is Tim's favorite game?</h3>
+            <ul class="options">
+                <li><input type="radio" name="q2" value="1"> eFootball</li>
+                <li><input type="radio" name="q2" value="2"> PUBG</li>
+                <li><input type="radio" name="q2" value="3"> Fortnite</li>
+                <li><input type="radio" name="q2" value="4"> NBA2K</li>
+            </ul>
+        </div>
+
+        <div class="question" data-correct="3">
+            <h3>What is Tim's favorite sport?</h3>
+            <ul class="options">
+                <li><input type="radio" name="q3" value="1"> Volleyball</li>
+                <li><input type="radio" name="q3" value="2"> Soccer</li>
+                <li><input type="radio" name="q3" value="3"> Basketball</li>
+                <li><input type="radio" name="q3" value="4"> Tennis</li>
+            </ul>
+        </div>
+        <div class="question" data-correct="1">
+            <h3>What is Tim's favorite fruit?</h3>
+            <ul class="options">
+                <li><input type="radio" name="q4" value="1"> Apple</li>
+                <li><input type="radio" name="q4" value="2"> Watermelon</li>
+                <li><input type="radio" name="q4" value="3"> Orange</li>
+                <li><input type="radio" name="q4" value="4"> Banana</li>
+            </ul>
+        </div>
+        <div class="question" data-correct="1">
+            <h3>How many siblings does Tim have?</h3>
+            <ul class="options">
+                <li><input type="radio" name="q4" value="1"> One</li>
+                <li><input type="radio" name="q4" value="2"> Two</li>
+                <li><input type="radio" name="q4" value="3"> Three</li>
+                <li><input type="radio" name="q4" value="4"> Zero</li>
+            </ul>
+        </div>
+
+        <button id="submit">Submit</button>
+        <div class="result" id="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        // 加载导航栏
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("navbar-container").innerHTML = html;
+            });
+
+        // 处理测验逻辑
+        document.getElementById('submit').addEventListener('click', () => {
+            let score = 0;
+            const questions = document.querySelectorAll('.question');
+
+            questions.forEach((question, index) => {
+                const selected = question.querySelector('input[name="q' + (index + 1) + '"]:checked');
+                const correctAnswer = parseInt(question.dataset.correct);
+                
+                if (selected && parseInt(selected.value) === correctAnswer) {
+                    score++;
+                }
+            });
+
+            document.getElementById("result").style.display = 'block';
+            document.getElementById("result").innerHTML = `🎉 You got ${score} out of ${questions.length} correct!`;
+        });
+    </script>
+
+</body>
+</html>
